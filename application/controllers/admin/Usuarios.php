@@ -6,6 +6,8 @@ class Usuarios extends CI_Controller
 	/* METODO CONSTRUTOR */
 	public function __construct()
 	{
+		error_reporting(0);
+
 		parent::__construct();
 	}
 
