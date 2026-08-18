@@ -1,0 +1,208 @@
+/* 
+ * Premium Theme for Blog CodeIgniter
+ * Supports Dark/Light Mode via [data-theme="dark"]
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Cores Globais - Light Theme */
+    --bg-body: #f4f7f6;
+    --bg-card: #ffffff;
+    --bg-navbar: rgba(255, 255, 255, 0.85);
+    --text-main: #2c3e50;
+    --text-muted: #7f8c8d;
+    --border-color: #eaeaea;
+    --accent-color: #3498db;
+    --accent-hover: #2980b9;
+    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] {
+    /* Cores Globais - Dark Theme */
+    --bg-body: #121212;
+    --bg-card: #1e1e1e;
+    --bg-navbar: rgba(30, 30, 30, 0.85);
+    --text-main: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --border-color: #333333;
+    --accent-color: #64b5f6;
+    --accent-hover: #42a5f5;
+    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.7), 0 4px 6px -2px rgba(0, 0, 0, 0.5);
+}
+
+/* Base Override */
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding-top: 80px; /* Espaço para navbar glassmorphism */
+}
+
+a {
+    color: var(--accent-color);
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent-hover);
+    text-decoration: none;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+/* Navbar Premium (Glassmorphism) */
+.navbar-inverse {
+    background-color: var(--bg-navbar);
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-soft);
+    transition: background-color 0.3s ease;
+}
+
+.navbar-inverse .navbar-brand {
+    color: var(--text-main);
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.navbar-inverse .navbar-brand:hover {
+    color: var(--accent-color);
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: var(--accent-color);
+}
+
+.navbar-inverse .navbar-nav > .open > a, 
+.navbar-inverse .navbar-nav > .open > a:focus, 
+.navbar-inverse .navbar-nav > .open > a:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+}
+
+/* Dropdown */
+.dropdown-menu {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-soft);
+}
+
+.dropdown-menu > li > a {
+    color: var(--text-main);
+    padding: 10px 20px;
+}
+
+.dropdown-menu > li > a:hover {
+    background-color: var(--bg-body);
+    color: var(--accent-color);
+}
+
+/* Cards (Substituindo o visual antigo das postagens e wells) */
+.premium-card, .well {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.well {
+    background-image: none;
+}
+
+/* Image responsive radius */
+.img-responsive {
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Botões */
+.btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    border-radius: 6px;
+    font-weight: 500;
+    padding: 8px 20px;
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+}
+
+.btn-default {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    border-color: var(--border-color);
+    transition: all 0.2s ease;
+}
+
+.btn-default:hover {
+    background-color: var(--border-color);
+    color: var(--text-main);
+}
+
+/* Inputs */
+.form-control {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: none;
+}
+
+.form-control:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* Separadores */
+hr {
+    border-top: 1px solid var(--border-color);
+}
+
+/* Footer */
+footer {
+    color: var(--text-muted);
+    padding: 30px 0;
+    border-top: 1px solid var(--border-color);
+    margin-top: 50px;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    font-size: 20px;
+    padding: 15px 15px;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+    line-height: 20px;
+}
+
+.theme-toggle-btn:hover {
+    color: var(--accent-color);
+    transform: rotate(15deg);
+}

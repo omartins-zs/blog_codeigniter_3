@@ -36,6 +36,13 @@
                         <a href="<?php echo base_url('contato'); ?>">Contato</a>
                     </li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Alternar Tema">
+                            <i id="theme-icon" class="fa fa-moon-o"></i>
+                        </button>
+                    </li>
+                </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
