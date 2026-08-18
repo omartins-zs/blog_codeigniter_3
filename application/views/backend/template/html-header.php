@@ -33,4 +33,4 @@
 
 </head>
 
-<body>
+<body class="admin-body">

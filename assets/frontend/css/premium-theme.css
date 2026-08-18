@@ -210,6 +210,10 @@ footer {
 /* =========================================================
    SB ADMIN 2 INTEGRATION (BACKEND)
    ========================================================= */
+body.admin-body {
+    padding-top: 0;
+}
+
 #wrapper {
     background-color: var(--bg-body);
 }
