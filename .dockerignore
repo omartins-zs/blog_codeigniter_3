@@ -1,0 +1,38 @@
+# ============================================================
+# .dockerignore — Blog CodeIgniter 3
+# ============================================================
+
+# Git
+.git
+.gitignore
+
+# Logs da aplicação
+application/logs/*.log
+
+# Cache da aplicação
+application/cache/*
+!application/cache/.htaccess
+!application/cache/index.html
+
+# Dependências locais do Composer (serão instaladas dentro do container se necessário)
+# vendor/   # Descomente se usar Composer com dependências externas
+
+# Node modules (se existir)
+node_modules/
+npm-debug.log
+
+# IDEs e editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Documentação (opcional manter fora)
+user_guide/
+
+# SQL de backup (mantemos o de inicialização)
+# blog_codeigniter.sql   # Manter — usado no entrypoint do MySQL

@@ -1,0 +1,86 @@
+services:
+
+  # ─── Aplicação PHP + Apache ───────────────────────────────
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: blog_ci3_app
+    restart: unless-stopped
+    environment:
+      DB_HOST: mysql
+      DB_PORT: "3306"
+      DB_DATABASE: blog_codeigniter
+      DB_USERNAME: blog_user
+      DB_PASSWORD: blog_password
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - blog_network
+
+  # ─── Nginx (Proxy reverso para o Apache) ──────────────────
+  nginx:
+    image: nginx:1.25-alpine
+    container_name: blog_ci3_nginx
+    restart: unless-stopped
+    ports:
+      - "8090:80"
+    volumes:
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+    networks:
+      - blog_network
+
+  # ─── MySQL 8.0 ────────────────────────────────────────────
+  mysql:
+    image: mysql:8.0
+    container_name: blog_ci3_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: blog_codeigniter
+      MYSQL_USER: blog_user
+      MYSQL_PASSWORD: blog_password
+    ports:
+      - "3309:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./blog_codeigniter.sql:/docker-entrypoint-initdb.d/blog_codeigniter.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-prootpassword"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - blog_network
+
+  # ─── PHPMyAdmin ───────────────────────────────────────────
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: blog_ci3_phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: rootpassword
+    ports:
+      - "8086:80"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - blog_network
+
+# ─── Volumes persistentes ─────────────────────────────────────
+volumes:
+  mysql_data:
+
+# ─── Rede interna ─────────────────────────────────────────────
+networks:
+  blog_network:
+    driver: bridge
