@@ -26,11 +26,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // Detecção automática de ambiente: Docker ou Local
 // No Docker, a app roda na raiz do servidor (http://localhost:8090/)
 // No local com XAMPP/Laragon, ajuste o caminho conforme necessário
-if (getenv('DB_HOST') === 'mysql') {
-    // Ambiente Docker
+// Lendo do .env caso exista
+if (isset($_ENV['APP_URL']) && !empty($_ENV['APP_URL'])) {
+    $config['base_url'] = rtrim($_ENV['APP_URL'], '/') . '/';
+} elseif (getenv('DB_HOST') === 'mysql') {
+    // Ambiente Docker (Fallback legacy)
     $config['base_url'] = 'http://localhost:8090/';
 } elseif (isset($_SERVER['HTTP_HOST'])) {
-    // Ambiente local — auto-detect
+    // Ambiente local — auto-detect (Fallback legacy)
     $config['base_url'] = 'http://' . $_SERVER['HTTP_HOST'] . '/curso_codeigniter_3/';
 } else {
     $config['base_url'] = 'http://localhost/curso_codeigniter_3/';

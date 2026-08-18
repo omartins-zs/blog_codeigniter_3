@@ -73,14 +73,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
-// Detecção automática de ambiente Docker ou Local
-// No Docker, a variável de ambiente DB_HOST é definida como 'mysql'
-// No ambiente local (Laragon/XAMPP), o host é 'localhost'
-$db_host     = getenv('DB_HOST')     ?: 'localhost';
-$db_username = getenv('DB_USERNAME') ?: 'root';
-$db_password = getenv('DB_PASSWORD') ?: '';
-$db_database = getenv('DB_DATABASE') ?: 'blog_codeigniter';
-$db_port     = getenv('DB_PORT')     ?: '3306';
+// Detecção automática de ambiente Docker ou Local com suporte ao phpdotenv
+$db_host     = isset($_ENV['DB_HOST']) ? $_ENV['DB_HOST'] : (getenv('DB_HOST') ?: 'localhost');
+$db_username = isset($_ENV['DB_USERNAME']) ? $_ENV['DB_USERNAME'] : (getenv('DB_USERNAME') ?: 'root');
+$db_password = isset($_ENV['DB_PASSWORD']) ? $_ENV['DB_PASSWORD'] : (getenv('DB_PASSWORD') ?: '');
+$db_database = isset($_ENV['DB_DATABASE']) ? $_ENV['DB_DATABASE'] : (getenv('DB_DATABASE') ?: 'blog_codeigniter');
+$db_port     = isset($_ENV['DB_PORT']) ? $_ENV['DB_PORT'] : (getenv('DB_PORT') ?: '3306');
 
 $db['default'] = array(
 	'dsn'	  => '',
