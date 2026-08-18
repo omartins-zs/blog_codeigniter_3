@@ -73,12 +73,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
+// Detecção automática de ambiente Docker ou Local
+// No Docker, a variável de ambiente DB_HOST é definida como 'mysql'
+// No ambiente local (Laragon/XAMPP), o host é 'localhost'
+$db_host     = getenv('DB_HOST')     ?: 'localhost';
+$db_username = getenv('DB_USERNAME') ?: 'root';
+$db_password = getenv('DB_PASSWORD') ?: '';
+$db_database = getenv('DB_DATABASE') ?: 'blog_codeigniter';
+$db_port     = getenv('DB_PORT')     ?: '3306';
+
 $db['default'] = array(
-	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'blog_codeigniter',
+	'dsn'	  => '',
+	'hostname' => $db_host,
+	'port'     => $db_port,
+	'username' => $db_username,
+	'password' => $db_password,
+	'database' => $db_database,
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -88,7 +98,7 @@ $db['default'] = array(
 	'char_set' => 'utf8',
 	'dbcollat' => 'utf8_general_ci',
 	'swap_pre' => '',
-	'encrypt' => FALSE,
+	'encrypt'  => FALSE,
 	'compress' => FALSE,
 	'stricton' => FALSE,
 	'failover' => array(),

@@ -23,7 +23,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/curso_codeigniter_3/';
+// Detecção automática de ambiente: Docker ou Local
+// No Docker, a app roda na raiz do servidor (http://localhost:8090/)
+// No local com XAMPP/Laragon, ajuste o caminho conforme necessário
+if (getenv('DB_HOST') === 'mysql') {
+    // Ambiente Docker
+    $config['base_url'] = 'http://localhost:8090/';
+} elseif (isset($_SERVER['HTTP_HOST'])) {
+    // Ambiente local — auto-detect
+    $config['base_url'] = 'http://' . $_SERVER['HTTP_HOST'] . '/curso_codeigniter_3/';
+} else {
+    $config['base_url'] = 'http://localhost/curso_codeigniter_3/';
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +46,7 @@ $config['base_url'] = 'http://localhost/curso_codeigniter_3/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
