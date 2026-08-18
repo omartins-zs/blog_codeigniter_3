@@ -25,7 +25,7 @@
         if($destaque->img == 1) {
         $fotopub= base_url("assets/frontend/img/publicacao/" . md5($destaque->id) . ".jpg");
         ?>
-        <img class="img-responsive" src=" <?php echo $fotopub ?>" alt="">
+        <img class="img-responsive" src="<?php echo $fotopub ?>" alt="">
         <hr>
         <?php
         }
