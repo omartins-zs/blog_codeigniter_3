@@ -242,13 +242,15 @@ body.admin-body {
     background-color: var(--bg-card);
 }
 
-.nav>li>a {
-    color: var(--text-main);
+.sidebar .nav>li>a {
+    color: var(--text-main) !important;
 }
 
-.nav>li>a:hover, .nav>li>a:focus {
-    background-color: var(--bg-body);
-    color: var(--accent-color);
+.sidebar .nav>li>a:hover, 
+.sidebar .nav>li>a:focus,
+.sidebar .nav>li>a.active {
+    background-color: var(--bg-body) !important;
+    color: var(--accent-color) !important;
 }
 
 .panel {
