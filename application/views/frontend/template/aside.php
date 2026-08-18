@@ -2,13 +2,13 @@
 <div class="col-md-4">
 
 <!-- Blog Search Well -->
-<div class="well">
+<div class="premium-card">
     <h4>Busca no Blog</h4>
     <div class="input-group">
         <input type="text" class="form-control">
         <span class="input-group-btn">
             <button class="btn btn-default" type="button">
-                <span class="glyphicon glyphicon-search"></span>
+                <span class="fa fa-search"></span>
         </button>
         </span>
     </div>
@@ -16,7 +16,7 @@
 </div>
 
 <!-- Blog Categories Well -->
-<div class="well">
+<div class="premium-card">
     <h4>Categorias do Blog</h4>
     <div class="row">
         <div class="col-lg-12">

@@ -206,3 +206,81 @@ footer {
     color: var(--accent-color);
     transform: rotate(15deg);
 }
+
+/* =========================================================
+   SB ADMIN 2 INTEGRATION (BACKEND)
+   ========================================================= */
+#wrapper {
+    background-color: var(--bg-body);
+}
+
+#page-wrapper {
+    background-color: var(--bg-body);
+    border-left: 1px solid var(--border-color);
+}
+
+.navbar-default {
+    background-color: var(--bg-navbar);
+    border-color: var(--border-color);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.navbar-default .navbar-brand {
+    color: var(--text-main);
+}
+
+.sidebar {
+    background-color: var(--bg-card);
+}
+
+.sidebar .sidebar-nav.navbar-collapse {
+    background-color: var(--bg-card);
+}
+
+.nav>li>a {
+    color: var(--text-main);
+}
+
+.nav>li>a:hover, .nav>li>a:focus {
+    background-color: var(--bg-body);
+    color: var(--accent-color);
+}
+
+.panel {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: var(--shadow-soft);
+}
+
+.panel-default > .panel-heading {
+    background-color: var(--bg-body);
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-main);
+    border-top-left-radius: 11px;
+    border-top-right-radius: 11px;
+}
+
+.panel-body {
+    color: var(--text-main);
+}
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    border-top: 1px solid var(--border-color);
+    color: var(--text-main);
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: var(--bg-body);
+}
+
+.table-hover>tbody>tr:hover {
+    background-color: var(--border-color);
+}
+
+/* Labels e inputs extra para o admin */
+label {
+    color: var(--text-main);
+    font-weight: 500;
+}

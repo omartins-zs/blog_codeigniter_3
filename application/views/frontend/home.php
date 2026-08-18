@@ -22,7 +22,7 @@
             <p class="lead">
                 por <a href="<?php echo base_url('autor/'.$destaque->idautor.'/'.limpar($destaque->nome)) ?>"><?php echo $destaque->nome ?></a>
             </p>
-            <p><span class="glyphicon glyphicon-time"></span> <?php echo postadoem($destaque->data) ?></p>
+            <p><span class="fa fa-clock-o"></span> <?php echo postadoem($destaque->data) ?></p>
             <?php
             if($destaque->img == 1) {
             $fotopub= base_url("assets/frontend/img/publicacao/" . md5($destaque->id) . ".jpg");
@@ -32,7 +32,7 @@
             }
             ?>
             <p><?php echo $destaque->subtitulo ?></p>
-            <a class="btn btn-primary" href="<?php echo base_url('postagem/'.$destaque->id.'/'.limpar($destaque->titulo))?>">Leia mais <span class="glyphicon glyphicon-chevron-right"></span></a>
+            <a class="btn btn-primary" href="<?php echo base_url('postagem/'.$destaque->id.'/'.limpar($destaque->titulo))?>">Leia mais <span class="fa fa-chevron-right"></span></a>
         </div>
         <?php
             }
