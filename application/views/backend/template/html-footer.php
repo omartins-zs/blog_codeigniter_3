@@ -9,6 +9,9 @@
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo base_url('assets/backend/js/sb-admin-2.js') ?>"></script>
 
+    <!-- Theme Switcher -->
+    <script src="<?php echo base_url('assets/frontend/js/theme-switcher.js') ?>"></script>
+
 </body>
 
 </html>

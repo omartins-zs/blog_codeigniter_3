@@ -25,6 +25,7 @@
 
     <!-- Custom CSS -->
     <link href="<?php echo base_url('assets/frontend/css/blog.css') ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/frontend/css/premium-theme.css') ?>" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="<?php echo base_url('assets/frontend/css/font-awesome/css/font-awesome.min.css') ?>" rel="stylesheet" type="text/css">

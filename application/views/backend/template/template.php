@@ -9,8 +9,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Painel Administrativo</a>
+                <a class="navbar-brand" href="<?php echo base_url('admin') ?>">Painel Administrativo</a>
             </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li>
+                    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Alternar Tema" style="padding: 15px; background: transparent; border: none; font-size: 18px; outline: none;">
+                        <i id="theme-icon" class="fa fa-moon-o"></i>
+                    </button>
+                </li>
+            </ul>
             <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
