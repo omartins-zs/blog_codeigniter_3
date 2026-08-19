@@ -312,4 +312,17 @@ switch (ENVIRONMENT)
  *
  * And away we go...
  */
+/*
+ * --------------------------------------------------------------------
+ * LOAD COMPOSER AUTOLOADER AND DOTENV
+ * --------------------------------------------------------------------
+ */
+if (file_exists(FCPATH . 'vendor/autoload.php')) {
+    require_once FCPATH . 'vendor/autoload.php';
+    if (class_exists('Dotenv\Dotenv') && file_exists(FCPATH . '.env')) {
+        $dotenv = Dotenv\Dotenv::createImmutable(FCPATH);
+        $dotenv->load();
+    }
+}
+
 require_once BASEPATH.'core/CodeIgniter.php';
