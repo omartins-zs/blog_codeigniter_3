@@ -65,6 +65,24 @@ Para rodar este projeto, você precisará ter instalado:
 
 ---
 
+## 🎨 CONTROLE DA ESTILIZAÇÃO PREMIUM
+
+A nova estilização moderna (Glassmorphism, Dark Mode, botões arredondados e sombras suaves) é controlada de forma modular. Para ativá-la ou desativá-la (retornando ao visual clássico), basta comentar ou descomentar a importação do `premium-theme.css` nos arquivos principais:
+
+**No Frontend (Blog):**
+Arquivo: `application/views/frontend/template/html-header.php`
+```html
+<link href="<?php echo base_url('assets/frontend/css/premium-theme.css') ?>" rel="stylesheet">
+```
+
+**No Backend (Painel Admin):**
+Arquivo: `application/views/backend/template/html-header.php`
+```html
+<link href="<?php echo base_url('assets/frontend/css/premium-theme.css') ?>" rel="stylesheet">
+```
+
+---
+
 ## 🎯 SOBRE O PROJETO
 
 Sistema desenvolvido demonstrando boas práticas de desenvolvimento, arquitetura limpa e organização de código, com foco em escalabilidade e manutenção. O projeto apresenta o balanço ideal entre o uso de um framework consolidado (CI3) e implementações de design e infraestrutura modernas (Glassmorphism, Docker, e Dotenv).
