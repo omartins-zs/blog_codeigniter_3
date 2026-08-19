@@ -34,7 +34,24 @@ O sistema possuía configurações mistas e hardcoded para a conexão de banco d
 - Adicionado `vlucas/phpdotenv` à camada `composer.json` (e o respectivo `.lock`).
 - Atualizado `Dockerfile` para ter o executável do Composer embutido e possibilitar instalação autônoma no contêiner.
 - Atualizado `.env.example` e adicionado `.env` ao escopo seguro do `.gitignore`.
-- Construção estruturada dos documentos: `COMO_EXECUTAR.md`, `COMO_EXECUTAR_LOCAL.md` e `COMO_EXECUTAR_DOCKER.md`.
+- Construção estruturada dos documentos: `COMO_EXECUTAR.md`, `COMO_EXECUTAR_DOCKER.md` e `COMO_EXECUTAR_LOCAL.md`.
+
+---
+
+## 🎨 Controle da Estilização Premium e Dark Mode
+A nova estilização moderna (Glassmorphism, Dark Mode, botões arredondados e sombras suaves) é controlada de forma modular. Para ativá-la ou desativá-la (retornando ao visual clássico), basta comentar ou descomentar a importação do `premium-theme.css` nos arquivos principais:
+
+**No Frontend (Blog):**
+Arquivo: `application/views/frontend/template/html-header.php`
+```html
+<link href="<?php echo base_url('assets/frontend/css/premium-theme.css') ?>" rel="stylesheet">
+```
+
+**No Backend (Painel Admin):**
+Arquivo: `application/views/backend/template/html-header.php`
+```html
+<link href="<?php echo base_url('assets/frontend/css/premium-theme.css') ?>" rel="stylesheet">
+```
 
 ---
 
