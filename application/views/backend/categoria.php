@@ -54,8 +54,8 @@
                             $this->table->set_heading("Nome da Categoria", "Alterar", "Excluir");
                             foreach ($categorias as $categoria) {
                                 $nomecat = $categoria->titulo;
-                                $alterar = anchor(base_url('admin/categoria/alterar/' . md5($categoria->id)), '<i class="fa fa-refresh fa-fw"></i>Alterar');
-                                $excluir = '<button type="button" class="btn btn-link" data-toggle="modal" data-target=".excluir-modal-' . $categoria->id . '"><i class="fa fa-remove fa-fw"></i> Excluir</button>';
+                                $alterar = anchor(base_url('admin/categoria/alterar/' . md5($categoria->id)), '<i class="fa fa-refresh fa-fw"></i>Alterar', 'class="btn btn-warning"');
+                                $excluir = '<button type="button" class="btn btn-danger" data-toggle="modal" data-target=".excluir-modal-' . $categoria->id . '"><i class="fa fa-remove fa-fw"></i> Excluir</button>';
 
                                 echo $modal = ' <div class="modal fade excluir-modal-' . $categoria->id . '" tabindex="-1" role="dialog" aria-hidden="true">
                                     <div class="modal-dialog modal-sm">

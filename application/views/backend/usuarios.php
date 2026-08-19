@@ -81,8 +81,8 @@
                                  }
                                
                                 
-                                $alterar = anchor(base_url('admin/usuarios/alterar/' . md5($usuario->id)), '<i class="fa fa-refresh fa-fw"></i>Alterar');
-                                $excluir = anchor(base_url('admin/usuarios/excluir/' . md5($usuario->id)), '<i class="fa fa-remove fa-fw"></i>Excluir');
+                                $alterar = anchor(base_url('admin/usuarios/alterar/' . md5($usuario->id)), '<i class="fa fa-refresh fa-fw"></i>Alterar', 'class="btn btn-warning"');
+                                $excluir = anchor(base_url('admin/usuarios/excluir/' . md5($usuario->id)), '<i class="fa fa-remove fa-fw"></i>Excluir', 'class="btn btn-danger"');
                                 $this->table->add_row($fotouser, $nomeuser, $alterar, $excluir);
                             }
                             $this->table->set_template(array(
